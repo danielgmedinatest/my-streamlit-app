@@ -11,5 +11,4 @@ def load_data(url):
 df = load_data("https://github.com/plotly/datasets/raw/master/uber-rides-data1.csv")
 st.dataframe(df.head())
 
-if st.button("Show Summary"):
-    st.write(df.describe())
+st.map(df.sample(100).rename(columns={"Lat": "lat", "Lon": "lon"}))
